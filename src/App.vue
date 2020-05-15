@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <aside class="sidebar-area"></aside>
+    <aside class="sidebar-area">
+      <Sidebar :user-data="userData" />
+    </aside>
     <main class="main-container">
       <div class="main-container__content">
         <router-view></router-view>
@@ -13,15 +15,24 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import { Sidebar } from './components/Sidebar';
+
 Vue.use(VueRouter);
 
 export default {
   name: 'App',
+  components: { Sidebar },
+  data: () => ({
+    userData: {
+      firstName: 'João',
+      avatar: 'https://picsum.photos/200/300',
+    },
+  }),
 };
 </script>
 
 <style lang="scss">
-@import url('./main.scss');
+@import './main.scss';
 </style>
 
 <style lang="scss" scoped>
