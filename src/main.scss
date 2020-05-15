@@ -14,10 +14,37 @@
   --color-background: #fafafa;
   --color-danger: #f64b53;
   --color-text-dark: #333333;
+  --color-text-on-primary: #ffffff;
   --color-text-gray: #bababa;
   --color-disabled: #cccccc;
+  --color-white: #ffffff;
+
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-default: 16px;
+  --font-size-lg: 22px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-st: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --space-xxl: 48px;
+  --space-jumbo: 64px;
 }
 
 body {
+  color: var(--color-text-dark);
   margin: 0;
+  font-size: 16px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
