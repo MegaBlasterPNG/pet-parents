@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 0 231 48">
+  <g id="Group_2" data-name="Group 2" transform="translate(-53 -72)">
+    <text id="Pet_Parents" data-name="Pet Parents" transform="translate(125 106)" fill="#333" font-size="26" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">Pet Parents</tspan></text>
+    <g id="Logo" transform="translate(53 72)">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="48" height="48" rx="8" fill="#24d05f"/>
+      <g id="Group_1" data-name="Group 1" transform="translate(-135 -353)">
+        <text id="P" transform="translate(154 388)" fill="#fff" font-size="32" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">P</tspan></text>
+        <text id="P-2" data-name="P" transform="translate(165 366) rotate(180)" fill="#fff" font-size="32" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">P</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
