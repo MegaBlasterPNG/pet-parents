@@ -1,0 +1,42 @@
+@mixin border-radius($type: 'default', $size: 0) {
+  @if $type == 'light' {
+    border-radius: var(--space-xs);
+  } @else if $type == 'default' {
+    border-radius: var(--space-sm);
+  } @else if $type == 'heavy' {
+    border-radius: var(--space-md);
+  } @else if $type == 'circle' {
+    border-radius: calc(#{$size} / 2);
+  } @else {
+    @error 'Invalid type #{$type}';
+  }
+}
+
+@mixin shadow($size: 'default') {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+}
+
+@mixin hover-link {
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+@mixin active-link {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin link($base-class) {
+  @if $base-class {
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    @include hover-link;
+
+    &.#{$base-class}--active {
+      @include active-link;
+    }
+  } @else {
+    @error 'Base class is invalid: #{$base-class}';
+  }
+}
