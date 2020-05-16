@@ -5,24 +5,27 @@
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  transition-duration: 0.12s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
-  --color-primary: #24d05f;
-  --color-background: #fafafa;
-  --color-danger: #f64b53;
-  --color-text-dark: #333333;
-  --color-text-on-primary: #ffffff;
-  --color-text-gray: #bababa;
-  --color-disabled: #cccccc;
-  --color-white: #ffffff;
+  --color-primary: hsl(141, 70%, 48%);
+  --color-primary-darken: hsl(141, 70%, 38%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-danger: hsl(357, 90%, 63%);
+  --color-text-dark: hsl(0, 0%, 20%);
+  --color-text-on-primary: hsl(0, 0%, 100%);
+  --color-text-gray: hsl(0, 0%, 73%);
+  --color-disabled: hsl(0, 0%, 80%);
+  --color-white: hsl(0, 0%, 100%);
 
   --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-default: 16px;
   --font-size-lg: 22px;
+  --font-size-xg: 32px;
 
   --font-weight-regular: 400;
   --font-weight-medium: 500;

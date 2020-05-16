@@ -1,18 +1,18 @@
-@mixin border-radius($type: 'default', $size: 0) {
-  @if $type == 'light' {
+@mixin border-radius($type: default, $size: 0) {
+  @if $type == light {
     border-radius: var(--space-xs);
-  } @else if $type == 'default' {
+  } @else if $type == default {
     border-radius: var(--space-sm);
-  } @else if $type == 'heavy' {
+  } @else if $type == heavy {
     border-radius: var(--space-md);
-  } @else if $type == 'circle' {
+  } @else if $type == circle {
     border-radius: calc(#{$size} / 2);
   } @else {
     @error 'Invalid type #{$type}';
   }
 }
 
-@mixin shadow($size: 'default') {
+@mixin shadow($size: default) {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
 }
 
@@ -39,4 +39,9 @@
   } @else {
     @error 'Base class is invalid: #{$base-class}';
   }
+}
+
+@mixin image-cover {
+  object-fit: cover;
+  object-position: center;
 }
