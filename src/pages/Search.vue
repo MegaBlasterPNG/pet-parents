@@ -4,7 +4,7 @@
       Looking for a friend? 👀
     </Title>
     <Grid>
-      <Card
+      <AnimalCard
         v-for="(animal, index) in searchResults"
         :key="`result-${index}`"
         :animal-data="animal"
@@ -15,13 +15,13 @@
 
 <script>
 import { Title } from '../components/Typography';
-import { Card } from '../components/Card';
+import { AnimalCard } from '../components/Card';
 import { Grid } from '../components/Layout';
 export default {
   name: 'SearchPage',
   components: {
     Title,
-    Card,
+    AnimalCard,
     Grid,
   },
   data: () => ({

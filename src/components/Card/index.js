@@ -1,3 +1,4 @@
+import AnimalCard from './AnimalCard.vue';
 import Card from './Card.vue';
 
-export { Card };
+export { AnimalCard, Card };
