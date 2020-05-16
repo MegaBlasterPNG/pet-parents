@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .text {
   color: var(--color-text-dark);
   font-size: var(--font-size-default);

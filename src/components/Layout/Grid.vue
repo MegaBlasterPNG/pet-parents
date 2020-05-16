@@ -10,7 +10,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .grid-container {
   display: grid;
   gap: var(--space-xxl) 80px;

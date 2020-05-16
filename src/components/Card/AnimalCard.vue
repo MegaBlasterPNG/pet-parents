@@ -1,15 +1,15 @@
 <template>
-  <Card class="card">
-    <img :src="animalData.image" alt="image" class="card__image" />
+  <Card class="animal-card">
+    <img :src="animalData.image" alt="image" class="animal-card__image" />
 
-    <div class="card__content-container">
+    <div class="animal-card__content-container">
       <Title tag="h3" size="small">{{ animalData.name }}y</Title>
       <Paragraph tag="span" type="gray"
         >{{ animalData.age }} years old</Paragraph
       >
     </div>
 
-    <div class="card__action-container">
+    <div class="animal-card__action-container">
       <Button>See more</Button>
     </div>
   </Card>
@@ -37,10 +37,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../utils/scss/index.scss';
 
-.card {
+.animal-card {
   background-color: var(--color-white);
   display: grid;
   gap: var(--space-md);
@@ -53,7 +53,7 @@ export default {
   @include border-radius;
   @include shadow;
 
-  .card__image {
+  .animal-card__image {
     border-top-left-radius: var(--space-sm);
     border-top-right-radius: var(--space-sm);
     grid-area: image-area;
@@ -62,11 +62,11 @@ export default {
     @include image-cover;
   }
 
-  .card__content-container {
+  .animal-card__content-container {
     padding: 0 var(--space-st) var(--space-st);
   }
 
-  .card__action-container {
+  .animal-card__action-container {
     padding: 0 0 var(--space-st);
   }
 }

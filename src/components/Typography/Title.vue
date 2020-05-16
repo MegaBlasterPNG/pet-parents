@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .title {
   font-size: var(--font-size-lg);
   margin-bottom: var(--space-st);

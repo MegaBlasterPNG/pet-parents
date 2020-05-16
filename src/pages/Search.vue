@@ -3,6 +3,9 @@
     <Title tag="h2" size="large">
       Looking for a friend? 👀
     </Title>
+
+    <SearchFilter />
+
     <Grid>
       <AnimalCard
         v-for="(animal, index) in searchResults"
@@ -17,12 +20,14 @@
 import { Title } from '../components/Typography';
 import { AnimalCard } from '../components/Card';
 import { Grid } from '../components/Layout';
+import { SearchFilter } from '../components/SearchFilter';
 export default {
   name: 'SearchPage',
   components: {
     Title,
     AnimalCard,
     Grid,
+    SearchFilter,
   },
   data: () => ({
     searchResults: [
@@ -56,7 +61,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .search-page {
   margin-top: calc(var(--space-sm) * 10);
 }
