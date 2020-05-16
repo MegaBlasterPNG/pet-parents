@@ -1,0 +1,1 @@
+export { objHasProps } from './validator';

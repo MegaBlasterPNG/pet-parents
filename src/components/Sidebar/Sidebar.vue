@@ -17,9 +17,7 @@
             :class="{ 'sidebar__menu-item--active': isExactActive }"
             class="sidebar__menu-item"
           >
-            <a :href="href" @click="navigate">
-              {{ item.label }}
-            </a>
+            <a :href="href" @click="navigate">{{ item.label }}</a>
           </li>
         </router-link>
       </ul>
@@ -42,18 +40,19 @@
 </template>
 
 <script>
+import { objHasProps } from '../../utils/javascript';
 export default {
   name: 'Sidebar',
   props: {
     userData: {
       type: Object,
       required: true,
-      validator: (obj) => ['firstName', 'avatar'].includes(Object.keys(obj)),
+      validator: (obj) => objHasProps(obj, ['firstName', 'avatar']),
     },
   },
   computed: {
     pageLinks: () => [
-      { label: 'Search Pet', path: '/home' },
+      { label: 'Search Pet', path: '/search' },
       { label: 'Advertisements', path: '/' },
     ],
   },
