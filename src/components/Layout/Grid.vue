@@ -13,7 +13,7 @@ export default {
 <style lang="scss">
 .grid-container {
   display: grid;
-  gap: var(--space-xxl);
+  gap: var(--space-xxl) 80px;
   grid-template: repeat(4, auto) / repeat(3, 280px);
 }
 </style>
