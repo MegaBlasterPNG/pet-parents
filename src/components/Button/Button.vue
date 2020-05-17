@@ -1,6 +1,7 @@
 <template>
   <button
     :class="{
+      [`button--${color}`]: color,
       [`button--${type}`]: type,
     }"
     class="button"
@@ -13,6 +14,11 @@
 export default {
   name: 'Button',
   props: {
+    color: {
+      type: String,
+      default: 'default',
+      validator: (type) => ['default', 'danger'].includes(type),
+    },
     type: {
       type: String,
       default: 'default',
@@ -31,10 +37,15 @@ export default {
   color: var(--color-primary);
   cursor: pointer;
   font-size: var(--font-size-default);
+  font-weight: var(--font-weight-medium);
   margin: 0;
   padding: var(--space-sm) var(--space-st);
   text-transform: uppercase;
   @include border-radius(light);
+
+  &--outlined {
+    border: 2px solid;
+  }
 
   &--raised {
     background-color: var(--color-primary);
@@ -47,9 +58,8 @@ export default {
     }
   }
 
-  &--raised {
-    border: 2px solid;
-    text-transform: initial;
+  &--danger {
+    color: var(--color-danger);
   }
 }
 </style>
