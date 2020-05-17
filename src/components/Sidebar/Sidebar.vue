@@ -53,7 +53,7 @@ export default {
   computed: {
     pageLinks: () => [
       { label: 'Search Pet', path: '/search' },
-      { label: 'Advertisements', path: '/' },
+      { label: 'Advertisements', path: '/advertisements' },
     ],
   },
 };
