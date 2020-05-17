@@ -10,7 +10,7 @@
     </div>
 
     <div class="animal-card__action-container">
-      <Button>See more</Button>
+      <Button @click.native="handleClick">See more</Button>
     </div>
   </Card>
 </template>
@@ -26,6 +26,10 @@ export default {
     animalData: {
       type: Object,
       required: true,
+    },
+    handleClick: {
+      type: Function,
+      default: () => null,
     },
   },
   components: {
