@@ -4,7 +4,7 @@
       Looking for a friend? 👀
     </Title>
 
-    <SearchFilter />
+    <SearchFilter class="search-page__filter" />
 
     <Grid>
       <AnimalCard
@@ -64,5 +64,9 @@ export default {
 <style lang="scss" scoped>
 .search-page {
   margin-top: calc(var(--space-sm) * 10);
+}
+
+.search-page__filter {
+  margin-bottom: var(--space-xxl);
 }
 </style>
