@@ -1,5 +1,5 @@
 <template>
-  <div class="search-page">
+  <div class="advertisements-page">
     <Title tag="h2" size="large">
       Your advertisements ✨
     </Title>
@@ -9,6 +9,7 @@
         v-for="(animal, index) in searchResults"
         :key="`result-${index}`"
         :animal-data="animal"
+        :handle-click="editNavigate"
       />
     </Grid>
   </div>
@@ -55,15 +56,19 @@ export default {
       },
     ],
   }),
+  methods: {
+    editNavigate() {
+      this.$router.push({
+        path: `${this.$router.currentRoute.path}/edit`,
+        params: { id: 1 },
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.search-page {
+.advertisements-page {
   margin-top: calc(var(--space-sm) * 10);
-}
-
-.search-page__filter {
-  margin-bottom: var(--space-xxl);
 }
 </style>
