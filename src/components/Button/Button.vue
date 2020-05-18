@@ -44,14 +44,13 @@ export default {
   @include border-radius(light);
 
   &--outlined {
-    border: 2px solid;
+    border: 1px solid;
   }
 
   &--raised {
     background-color: var(--color-primary);
     color: var(--color-text-on-primary);
     font-weight: var(--font-weight-medium);
-    text-transform: initial;
 
     &:active {
       background-color: var(--color-primary-darken);
