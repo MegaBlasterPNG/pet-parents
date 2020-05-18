@@ -18,6 +18,6 @@ export class AdvertisementsService {
   }
 
   async deleteAdvertisement(id) {
-    return axios.post(`${this._apiUrl}/advertisements/${id}`);
+    return axios.delete(`${this._apiUrl}/advertisements/${id}`);
   }
 }
