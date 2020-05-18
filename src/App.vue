@@ -17,6 +17,8 @@ import VueRouter from 'vue-router';
 
 import { Sidebar } from './components/Sidebar';
 
+import { mapActions } from 'vuex';
+
 Vue.use(VueRouter);
 
 export default {
@@ -28,6 +30,12 @@ export default {
       avatar: 'https://picsum.photos/200/300',
     },
   }),
+  created() {
+    this.setAdvertisements();
+  },
+  methods: {
+    ...mapActions(['setAdvertisements']),
+  },
 };
 </script>
 
