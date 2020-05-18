@@ -1,5 +1,10 @@
 <template>
-  <input :type="type" :placeholder="placeholder" class="input-text" />
+  <input
+    :type="type"
+    :value="value"
+    :placeholder="placeholder"
+    class="input-text"
+  />
 </template>
 
 <script>
@@ -14,6 +19,10 @@ export default {
     placeholder: {
       type: String,
       default: '',
+    },
+    value: {
+      type: [String, Number],
+      default: null,
     },
   },
 };

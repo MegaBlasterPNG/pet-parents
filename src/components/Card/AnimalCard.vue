@@ -10,7 +10,7 @@
     </div>
 
     <div class="animal-card__action-container">
-      <Button @click.native="handleClick">See more</Button>
+      <Button @click.native="handleEdit">See more</Button>
     </div>
   </Card>
 </template>
@@ -37,6 +37,12 @@ export default {
     Card,
     Paragraph,
     Title,
+  },
+  methods: {
+    handleEdit() {
+      const { id } = this.animalData;
+      this.$emit('edit-animal', { id });
+    },
   },
 };
 </script>

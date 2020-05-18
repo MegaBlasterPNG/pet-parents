@@ -7,14 +7,15 @@
     >
       <input
         :id="`opt-${index}`"
+        :checked="option.value === value"
+        :value="option.value"
         name="opt"
         type="radio"
-        :value="option.value"
         class="select-button"
       />
-      <label class="select-button__label" :for="`opt-${index}`">{{
-        option.label
-      }}</label>
+      <label class="select-button__label" :for="`opt-${index}`">
+        {{ option.label }}
+      </label>
     </div>
   </div>
 </template>
@@ -26,6 +27,10 @@ export default {
     options: {
       type: Array,
       required: true,
+    },
+    value: {
+      type: String,
+      default: '',
     },
   },
 };

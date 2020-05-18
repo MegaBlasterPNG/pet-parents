@@ -18,18 +18,13 @@
 import { Button } from '../Button';
 import { Card } from '../Card';
 import { Select } from '../FormGroup';
+
 export default {
   name: 'SearchFilter',
   components: {
     Button,
     Card,
     Select,
-  },
-  props: {
-    filters: {
-      type: Array,
-      required: true,
-    },
   },
   data: () => ({
     animalOptions: [

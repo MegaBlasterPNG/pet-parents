@@ -1,5 +1,5 @@
 <template>
-  <textarea :placeholder="placeholder" class="textarea" />
+  <textarea :placeholder="placeholder" :value="value" class="textarea" />
 </template>
 
 <script>
@@ -7,6 +7,10 @@ export default {
   name: 'Textarea',
   props: {
     placeholder: {
+      type: String,
+      default: '',
+    },
+    value: {
       type: String,
       default: '',
     },
