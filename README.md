@@ -1,24 +1,30 @@
 # pet-parents
 
-## Project setup
+## Requirements
+
+- `node` (recommended version: `stable`)
+- `yarn`
+
+## How starts project?
+
+See more next steps to start project.
+
+### #1 Project setup
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### #2 Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### #3 Compiles and minifies for production (optional)
+
+You can build the project using next command.
+
 ```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
