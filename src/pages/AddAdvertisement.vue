@@ -26,6 +26,14 @@
         class="add-advertisement-page__input-age"
       />
 
+      <Select
+        ref="inputAnimal"
+        class="add-advertisement-page__select-animal"
+        label="Animal"
+        variant="outlined"
+        :options="animalOptions"
+      />
+
       <Textarea
         ref="inputDesc"
         placeholder="Description"
@@ -44,8 +52,9 @@ import { Button } from '../components/Button';
 import {
   DropZone,
   InputText,
-  Textarea,
+  Select,
   SelectButton,
+  Textarea,
 } from '../components/FormGroup';
 import { Title } from '../components/Typography';
 
@@ -59,6 +68,7 @@ export default {
     Button,
     DropZone,
     InputText,
+    Select,
     SelectButton,
     Textarea,
     Title,
@@ -68,21 +78,32 @@ export default {
       { label: 'M', value: 'M' },
       { label: 'F', value: 'F' },
     ],
+    animalOptions: [
+      { label: 'Dog', value: 'Dog' },
+      { label: 'Cat', value: 'Cat' },
+    ],
   }),
   methods: {
     ...mapActions(['addAdvertisement']),
     handleEdit() {
-      const { inputAge, inputDesc, inputName, inputSex } = this.$refs;
+      const {
+        inputAge,
+        inputAnimal,
+        inputDesc,
+        inputName,
+        inputSex,
+      } = this.$refs;
 
       this.addAdvertisement({
         id: this.$route.query.id,
-        name: inputName.$data.inputValue,
         age: inputAge.$data.inputValue,
+        animal: inputAnimal.$data.value,
         desc: inputDesc.$data.inputValue,
+        name: inputName.$data.inputValue,
         sex: inputSex.$data.inputValue,
       });
 
-      this.$router.push('/search');
+      this.$router.push('/advertisements');
     },
   },
 };
@@ -97,7 +118,7 @@ export default {
     gap: var(--space-st);
     grid-template-areas:
       'image-area name-area sex-area'
-      'image-area age-area .'
+      'image-area age-area animal-area'
       'image-area description-area description-area'
       'actions-area actions-area .';
     grid-template-columns: 240px 250px auto;
@@ -114,6 +135,10 @@ export default {
 
     .add-advertisement-page__input-age {
       grid-area: age-area;
+    }
+
+    .add-advertisement-page__select-animal {
+      grid-area: animal-area;
     }
 
     .add-advertisement-page__description {

@@ -4,7 +4,8 @@
       Looking for a friend? 👀
     </Title>
 
-    <SearchFilter class="advertisements-page__filter" />
+    <!-- TODO: Add filter -->
+    <!-- <SearchFilter class="advertisements-page__filter" /> -->
 
     <Grid>
       <AnimalCard
@@ -20,7 +21,6 @@
 <script>
 import { AnimalCard } from '../components/Card';
 import { Grid } from '../components/Layout';
-import { SearchFilter } from '../components/SearchFilter';
 import { Title } from '../components/Typography';
 import { mapGetters } from 'vuex';
 
@@ -30,7 +30,6 @@ export default {
     Title,
     AnimalCard,
     Grid,
-    SearchFilter,
   },
   computed: {
     ...mapGetters(['advertisementList']),
