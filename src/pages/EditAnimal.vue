@@ -12,37 +12,52 @@
         class="edit-animal-page__drop-zone"
       />
 
-      <InputText class="edit-animal-page__input-name" placeholder="Name" />
+      <InputText
+        :value="animalName"
+        placeholder="Name"
+        class="edit-animal-page__input-name"
+      />
 
-      <SelectButton :options="sexOptions" />
+      <SelectButton :options="sexOptions" :value="animalSex" />
 
       <InputText
+        :value="animalAge"
+        placeholder="Age"
         type="number"
         class="edit-animal-page__input-age"
-        placeholder="Age"
       />
 
       <Textarea
-        class="edit-animal-page__description"
+        :value="animalDescription"
         placeholder="Description"
+        class="edit-animal-page__description"
       />
+
+      <div class="edit-animal-page__actions">
+        <Button type="raised" @click.native.prevent="handleEdit">Save</Button>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
-import { Title } from '../components/Typography';
+import { Button } from '../components/Button';
 import {
   DropZone,
   InputText,
   Textarea,
   SelectButton,
 } from '../components/FormGroup';
+import { Title } from '../components/Typography';
+
+import { mapActions, mapGetters } from 'vuex';
+
 import 'vue2-dropzone/dist/vue2Dropzone.min.css';
 
 export default {
   name: 'EditAnimalPage',
   components: {
+    Button,
     DropZone,
     InputText,
     SelectButton,
@@ -55,6 +70,28 @@ export default {
       { label: 'F', value: 'F' },
     ],
   }),
+  computed: {
+    ...mapGetters(['getCurrentAdvertisement']),
+    animalAge: (self) =>
+      self.getCurrentAdvertisement ? self.getCurrentAdvertisement.age : '',
+    animalDescription: (self) =>
+      self.getCurrentAdvertisement
+        ? self.getCurrentAdvertisement.description
+        : '',
+    animalName: (self) =>
+      self.getCurrentAdvertisement ? self.getCurrentAdvertisement.name : '',
+    animalSex: (self) =>
+      self.getCurrentAdvertisement ? self.getCurrentAdvertisement.sex : '',
+  },
+  mounted() {
+    this.setCurrentAdvertisement(this.$route.query.id);
+  },
+  methods: {
+    ...mapActions(['setCurrentAdvertisement', 'updateAdvertisement']),
+    handleEdit(e) {
+      console.log(e);
+    },
+  },
 };
 </script>
 
@@ -68,7 +105,8 @@ export default {
     grid-template-areas:
       'image-area name-area sex-area'
       'image-area age-area .'
-      'image-area description-area description-area';
+      'image-area description-area description-area'
+      'actions-area actions-area .';
     grid-template-columns: 240px 250px auto;
 
     .edit-animal-page__drop-zone {
@@ -87,6 +125,10 @@ export default {
 
     .edit-animal-page__description {
       grid-area: description-area;
+    }
+
+    .edit-animal-page__actions {
+      grid-area: actions-area;
     }
   }
 }
