@@ -3,7 +3,7 @@
     <img :src="animalData.image" alt="image" class="animal-card__image" />
 
     <div class="animal-card__content-container">
-      <Title tag="h3" size="small">{{ animalData.name }}y</Title>
+      <Title tag="h3" size="small">{{ animalData.name }}</Title>
       <Paragraph tag="span" type="gray"
         >{{ animalData.age }} years old</Paragraph
       >
