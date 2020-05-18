@@ -1,9 +1,10 @@
 <template>
   <input
+    v-model="inputValue"
     :type="type"
-    :value="value"
     :placeholder="placeholder"
     class="input-text"
+    @change="onChange"
   />
 </template>
 
@@ -23,6 +24,19 @@ export default {
     value: {
       type: [String, Number],
       default: null,
+    },
+  },
+  watch: {
+    value(val) {
+      this.inputValue = val;
+    },
+  },
+  data: () => ({
+    inputValue: '',
+  }),
+  methods: {
+    onChange() {
+      this.$emit('input-change', this.inputValue);
     },
   },
 };

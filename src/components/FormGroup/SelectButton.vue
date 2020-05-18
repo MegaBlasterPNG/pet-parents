@@ -7,11 +7,12 @@
     >
       <input
         :id="`opt-${index}`"
-        :checked="option.value === value"
+        :checked="inputValue === value"
         :value="option.value"
         name="opt"
         type="radio"
         class="select-button"
+        @change="handleCheck"
       />
       <label class="select-button__label" :for="`opt-${index}`">
         {{ option.label }}
@@ -31,6 +32,19 @@ export default {
     value: {
       type: String,
       default: '',
+    },
+  },
+  watch: {
+    value(val) {
+      this.inputValue = val;
+    },
+  },
+  data: () => ({
+    inputValue: '',
+  }),
+  methods: {
+    handleCheck(e) {
+      this.inputValue = e.target.value;
     },
   },
 };

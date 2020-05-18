@@ -1,5 +1,5 @@
 <template>
-  <textarea :placeholder="placeholder" :value="value" class="textarea" />
+  <textarea :placeholder="placeholder" v-model="value" class="textarea" />
 </template>
 
 <script>
@@ -15,6 +15,14 @@ export default {
       default: '',
     },
   },
+  watch: {
+    value(val) {
+      this.inputValue = val;
+    },
+  },
+  data: () => ({
+    inputValue: '',
+  }),
 };
 </script>
 
