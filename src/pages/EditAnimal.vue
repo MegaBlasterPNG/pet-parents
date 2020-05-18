@@ -13,14 +13,16 @@
       />
 
       <InputText
+        ref="inputName"
         :value="animalName"
         placeholder="Name"
         class="edit-animal-page__input-name"
       />
 
-      <SelectButton :options="sexOptions" :value="animalSex" />
+      <SelectButton ref="inputSex" :options="sexOptions" :value="animalSex" />
 
       <InputText
+        ref="inputAge"
         :value="animalAge"
         placeholder="Age"
         type="number"
@@ -28,6 +30,7 @@
       />
 
       <Textarea
+        ref="inputDesc"
         :value="animalDescription"
         placeholder="Description"
         class="edit-animal-page__description"
@@ -35,6 +38,13 @@
 
       <div class="edit-animal-page__actions">
         <Button type="raised" @click.native.prevent="handleEdit">Save</Button>
+        <Button
+          type="outlined"
+          color="danger"
+          class="edit-animal-page__cancel-button"
+          @click.native.prevent="handleDelete"
+          >Delete</Button
+        >
       </div>
     </form>
   </div>
@@ -87,9 +97,27 @@ export default {
     this.setCurrentAdvertisement(this.$route.query.id);
   },
   methods: {
-    ...mapActions(['setCurrentAdvertisement', 'updateAdvertisement']),
-    handleEdit(e) {
-      console.log(e);
+    ...mapActions([
+      'setCurrentAdvertisement',
+      'updateAdvertisement',
+      'deleteAdvertisement',
+    ]),
+    handleEdit() {
+      const { inputAge, inputDesc, inputName, inputSex } = this.$refs;
+
+      this.updateAdvertisement({
+        id: this.$route.query.id,
+        name: inputName.$data.inputValue,
+        age: inputAge.$data.inputValue,
+        desc: inputDesc.$data.inputValue,
+        sex: inputSex.$data.inputValue,
+      });
+
+      this.$router.push('/advertisements');
+    },
+    handleDelete() {
+      this.deleteAdvertisement(this.$route.query.id);
+      this.$router.push('/advertisements');
     },
   },
 };
@@ -129,6 +157,10 @@ export default {
 
     .edit-animal-page__actions {
       grid-area: actions-area;
+
+      .edit-animal-page__cancel-button {
+        margin-left: var(--space-st);
+      }
     }
   }
 }
