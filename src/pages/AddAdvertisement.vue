@@ -8,7 +8,6 @@
       <DropZone
         ref="myVueDropzone"
         id="dropzone"
-        :options="dropzoneOptions"
         class="add-advertisement-page__drop-zone"
       />
 

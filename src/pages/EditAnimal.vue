@@ -8,7 +8,6 @@
       <DropZone
         ref="myVueDropzone"
         id="dropzone"
-        :options="dropzoneOptions"
         class="edit-animal-page__drop-zone"
       />
 
