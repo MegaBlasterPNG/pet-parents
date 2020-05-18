@@ -17,6 +17,10 @@ export class AdvertisementsService {
     return axios.post(`${this._apiUrl}/advertisements`, data);
   }
 
+  async updateAdvertisement(id, data) {
+    return axios.put(`${this._apiUrl}/advertisements/${id}`, data);
+  }
+
   async deleteAdvertisement(id) {
     return axios.delete(`${this._apiUrl}/advertisements/${id}`);
   }
