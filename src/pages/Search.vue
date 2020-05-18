@@ -8,7 +8,7 @@
 
     <Grid>
       <AnimalCard
-        v-for="(animal, index) in searchResults"
+        v-for="(animal, index) in advertisementList"
         :key="`result-${index}`"
         :animal-data="animal"
       />
@@ -17,10 +17,12 @@
 </template>
 
 <script>
-import { Title } from '../components/Typography';
 import { AnimalCard } from '../components/Card';
 import { Grid } from '../components/Layout';
 import { SearchFilter } from '../components/SearchFilter';
+import { Title } from '../components/Typography';
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'SearchPage',
   components: {
@@ -29,35 +31,9 @@ export default {
     Grid,
     SearchFilter,
   },
-  data: () => ({
-    searchResults: [
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-    ],
-  }),
+  computed: {
+    ...mapGetters(['advertisementList']),
+  },
 };
 </script>
 

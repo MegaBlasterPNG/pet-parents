@@ -6,19 +6,20 @@
 
     <Grid>
       <AnimalCard
-        v-for="(animal, index) in searchResults"
+        v-for="(animal, index) in advertisementList"
         :key="`result-${index}`"
         :animal-data="animal"
-        :handle-click="editNavigate"
+        @edit-animal="editNavigate"
       />
     </Grid>
   </div>
 </template>
 
 <script>
-import { Title } from '../components/Typography';
 import { AnimalCard } from '../components/Card';
 import { Grid } from '../components/Layout';
+import { Title } from '../components/Typography';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'AdvertisementsPage',
@@ -27,40 +28,14 @@ export default {
     AnimalCard,
     Grid,
   },
-  data: () => ({
-    searchResults: [
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-      {
-        name: 'Mr. Toby',
-        age: '2',
-        image: 'https://i.picsum.photos/id/1025/4951/3301.jpg',
-      },
-    ],
-  }),
+  computed: {
+    ...mapGetters(['advertisementList']),
+  },
   methods: {
-    editNavigate() {
+    editNavigate(id) {
       this.$router.push({
         path: `${this.$router.currentRoute.path}/edit`,
-        params: { id: 1 },
+        query: id,
       });
     },
   },
