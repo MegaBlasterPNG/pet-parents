@@ -20,10 +20,22 @@ const mutations = {
   setCurrentAdvertisement: (state, advertisementData) =>
     (state.currentAdvertisement = advertisementData),
 
-  updateAdvertisement: (state, advData) =>
+  updateAdvertisement: (state, advData) => {
     state.advertisements.map((adv, i) => {
-      if (adv.id === advData.id) return (state.advertisements[i] = advData);
-    }),
+      if (adv.id === advData.id) {
+        adv[i] = advData;
+        return;
+      }
+    });
+  },
+
+  deleteAdvertisement: (state, id) => {
+    state.advertisements.map((adv, i) => {
+      if (adv.id === id) {
+        state.advertisements.splice(i, 1);
+      }
+    });
+  },
 };
 
 const actions = {
@@ -39,8 +51,13 @@ const actions = {
 
   updateAdvertisement: (context, advData) =>
     advService
-      .addAdvertisement(advData)
+      .updateAdvertisement(advData.id, advData)
       .then((res) => context.commit('updateAdvertisement', res.data)),
+
+  deleteAdvertisement: (context, id) =>
+    advService
+      .deleteAdvertisement(id)
+      .then(() => context.commit('deleteAdvertisement', id)),
 };
 
 Vue.use(Vuex);
