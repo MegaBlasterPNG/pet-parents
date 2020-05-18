@@ -1,7 +1,7 @@
 <template>
   <div class="edit-animal-page">
     <Title tag="h2" size="large">
-      Your advertisements ✨
+      Edit advertisement 📝
     </Title>
 
     <form class="edit-animal-page__form">

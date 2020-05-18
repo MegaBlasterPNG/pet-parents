@@ -20,6 +20,9 @@ const mutations = {
   setCurrentAdvertisement: (state, advertisementData) =>
     (state.currentAdvertisement = advertisementData),
 
+  addAdvertisement: (state, advertisementData) =>
+    state.advertisements.push(advertisementData),
+
   updateAdvertisement: (state, advData) => {
     state.advertisements.map((adv, i) => {
       if (adv.id === advData.id) {
@@ -48,6 +51,11 @@ const actions = {
     advService
       .getAdvertisementById(advertisementId)
       .then((res) => context.commit('setCurrentAdvertisement', res.data)),
+
+  addAdvertisement: (context, advertisement) =>
+    advService
+      .addAdvertisement(advertisement)
+      .then((res) => context.commit('addAdvertisement', res.data)),
 
   updateAdvertisement: (context, advData) =>
     advService
