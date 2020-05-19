@@ -94,14 +94,18 @@ export default {
   }
 
   &.select-wrapper--outlined {
-    background-color: var(--color-white);
-    border: 1px solid rgba($color: #000000, $alpha: 0.16);
+    border: none;
     padding: 0;
     @include border-radius(light);
 
     select {
-      width: 100%;
+      background-color: var(--color-white);
+      border: 1px solid rgba($color: #000000, $alpha: 0.16);
+      max-height: 35px;
       padding: var(--space-sm);
+      position: relative;
+      top: -1px;
+      width: 100%;
     }
 
     .select-icon {
