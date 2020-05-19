@@ -108,7 +108,7 @@ export default {
         id: this.$route.query.id,
         name: inputName.$data.inputValue,
         age: inputAge.$data.inputValue,
-        desc: inputDesc.$data.inputValue,
+        description: inputDesc.$data.inputValue,
         sex: inputSex.$data.inputValue,
       });
 
