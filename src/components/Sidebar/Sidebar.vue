@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     pageLinks: () => [
-      { label: 'Advertisements', path: '/advertisements' },
+      { label: 'My Advertisements', path: '/advertisements' },
       { label: 'Add Advertisement', path: '/advertisements/add' },
     ],
   },
