@@ -12,42 +12,46 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import { mapActions } from "vuex";
+import { Sidebar } from "./components/Sidebar";
 
-import { Sidebar } from './components/Sidebar';
-
-import { mapActions } from 'vuex';
+import "ant-design-vue/dist/antd.css";
 
 Vue.use(VueRouter);
 
 export default {
-  name: 'App',
+  name: "App",
   components: { Sidebar },
   data: () => ({
     userData: {
-      firstName: 'João',
-      avatar: 'https://picsum.photos/200/300',
-    },
+      firstName: "João",
+      avatar: "https://picsum.photos/200/300"
+    }
   }),
   created() {
     this.setAdvertisements();
   },
   methods: {
-    ...mapActions(['setAdvertisements']),
-  },
+    ...mapActions(["setAdvertisements"])
+  }
 };
 </script>
 
+<style lang="less">
+@import "ant-design-vue/dist/antd.less";
+</style>
+
 <style lang="scss">
-@import './main.scss';
+@import "./main.scss";
 </style>
 
 <style lang="scss" scoped>
 #app {
   background-color: var(--color-background);
   display: grid;
-  grid-template-areas: 'sidebar main-container';
+  grid-template-areas: "sidebar main-container";
   grid-template-columns: 320px auto;
   min-height: 100vh;
   width: 100vw;
