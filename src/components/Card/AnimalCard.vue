@@ -1,83 +1,62 @@
 <template>
-  <Card class="animal-card">
-    <img :src="animalData.image" alt="image" class="animal-card__image" />
+  <Card>
+    <img
+      slot="cover"
+      :src="animalData.image"
+      alt="image"
+      class="animal-card__image"
+    />
 
-    <div class="animal-card__content-container">
-      <Title tag="h3" size="small">{{ animalData.name }}</Title>
-      <Paragraph tag="span" type="gray"
-        >{{ animalData.age }} years old</Paragraph
+    <CardMeta
+      :title="animalData.name"
+      :description="`${animalData.animal}`"
+    />
+
+    <template slot="actions" class="ant-card-actions">
+      <Button
+        type="primary"
+        @click.native.prevent="handleEdit"
       >
-    </div>
-
-    <div class="animal-card__action-container">
-      <Button @click.native="handleEdit">See more</Button>
-    </div>
+        Edit
+      </Button>
+    </template>
   </Card>
 </template>
 
 <script>
-import Card from './Card.vue';
-import { Button } from '../Button';
-import { Paragraph, Title } from '../Typography';
+import { Button, Card } from "ant-design-vue";
 
 export default {
-  name: 'AnimalCard',
+  name: "AnimalCard",
   props: {
     animalData: {
       type: Object,
-      required: true,
+      required: true
     },
     handleClick: {
       type: Function,
-      default: () => null,
-    },
+      default: () => null
+    }
   },
   components: {
     Button,
     Card,
-    Paragraph,
-    Title,
+    CardMeta: Card.Meta,
   },
   methods: {
     handleEdit() {
       const { id } = this.animalData;
-      this.$emit('edit-animal', { id });
-    },
-  },
+      this.$emit("edit-animal", { id });
+    }
+  }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../utils/scss/index.scss';
 
-.animal-card {
-  background-color: var(--color-white);
-  display: grid;
-  gap: var(--space-md);
-  grid-template-areas:
-    'image-area'
-    'content-area'
-    'action-area';
-  grid-template-rows: 160px auto auto;
-  width: 280px;
-  @include border-radius;
-  @include shadow;
-
-  .animal-card__image {
-    border-top-left-radius: var(--space-sm);
-    border-top-right-radius: var(--space-sm);
-    grid-area: image-area;
-    height: 100%;
-    width: 100%;
-    @include image-cover;
-  }
-
-  .animal-card__content-container {
-    padding: 0 var(--space-st) var(--space-st);
-  }
-
-  .animal-card__action-container {
-    padding: 0 0 var(--space-st);
-  }
+.animal-card__image {
+  height: 160px;
+  @include image-cover
 }
 </style>
